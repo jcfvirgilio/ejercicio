@@ -7,7 +7,6 @@ const CountdownCustom = () => {
     hours: 0,
     minutes: 0,
     seconds: 0,
-    expired: false,
   });
 
   // Estado para almacenar la fecha objetivo del contador
@@ -38,21 +37,11 @@ const CountdownCustom = () => {
         hours,
         minutes,
         seconds,
-        expired: false,
       });
 
       // Programar la próxima actualización después de 1 segundo
       setTimeout(updateCountdown, 1000);
-    } else {
-      // Si el tiempo restante es cero, marcar como expirado
-      setCountdown({
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        expired: true,
-      });
-    }
+    } 
   }, [countdownDate]);
 
   // Efecto para iniciar el contador y limpiar el temporizador en la desmontura del componente
