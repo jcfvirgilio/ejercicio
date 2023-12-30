@@ -1,28 +1,36 @@
-import React from 'react';
-import Video from './Video';
+"use client"
+
+import React, { useState } from 'react';
+import VideoPlayer from './Video';
 import Image from 'next/image';
+import { observable } from '@/app/lib/Observer';
 
 const videoButtons = [
-  { src: '/assets/images/team-latam.png', alt: 'team-latam', text: 'Los Deportistas latinoamericanos que participan en Sochi 2024' },
-  { src: '/assets/images/travel-meets-fashion.png', alt: 'travel-meets-fashion', text: 'Travel meets Fashion' },
-  { src: '/assets/images/velocidad-riesgo.png', alt: 'velocidad-riesgo', text: 'Velocidad y riesgo en los deportes' },
-  { src: '/assets/images/experiencia.png', alt: 'experiencia', text: 'vive la experiencia multimedia' },
+  { src: '/assets/images/team-latam.png', alt: 'team-latam', videoUrl:'82b4u7ba4Ps',text: 'Los Deportistas latinoamericanos que participan en Sochi 2024' },
+  { src: '/assets/images/travel-meets-fashion.png', alt: 'travel-meets-fashion',videoUrl:'UomdFp8DNys', text: 'Travel meets Fashion' },
+  { src: '/assets/images/velocidad-riesgo.png', alt: 'velocidad-riesgo', videoUrl:'peuVFBTt47o',text: 'Velocidad y riesgo en los deportes' },
+  { src: '/assets/images/experiencia.png', alt: 'experiencia', videoUrl:'ytHWv7otmJ0',text: 'vive la experiencia multimedia' },
 ];
 
- const Center = () => {
+const Center = () => {
+
+  const loadVideo= (urlVideo) => {
+      observable.notify(urlVideo)
+  }
+
   return (
     <div
       className='flex w-full flex-col items-center justify-center'
       style={{ containerType: 'inline-size', height: '80vh' }}>
-      <div className='flex w-full items-center '
+      <div className='flex w-full items-center'
         style={{ 
           flexGrow: 1,
           backgroundImage: `url("/assets/images/background.jpg")`,
-          backgroundSize: 'contain',
+          backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center center',
         }}>
-          <Video/>
+          <VideoPlayer key={'videoTracker'} />
         </div>
       
       <div
@@ -31,9 +39,11 @@ const videoButtons = [
         <div className='pb-5'>CLARO SPORTS EN SOCHI 2024</div>
         <div className='flex space-x-8 pb-10'>
           {
-            videoButtons.map((video) => (
-              <span key={video.alt}>
-                <Image src={video.src} width={100} height={120} alt='button'/>
+            videoButtons.map((video,index) => (
+              <span key={video.alt} className='cursor-pointer'>
+                <Image src={video.src} width={100} height={120} alt={video.text}
+                onClick={()=>loadVideo(video.videoUrl)}
+                />
               </span>
             ))
           }
