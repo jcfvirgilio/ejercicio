@@ -1,6 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 
+const socialIcons = [
+  { src: '/assets/images/mobli-icon.png', alt: 'mobli-icon', bgColor: '#67ACF7' },
+  { src: '/assets/images/mobli-icon.png', alt: 'mobli-icon', bgColor: '#67ACF7' },
+  { src: '/assets/images/mobli-icon.png', alt: 'facebook-icon', bgColor: '#37599E' },
+  { src: '/assets/images/mobli-icon.png', alt: 'youtube-icon', bgColor: '#A22A1F' },
+];
+
 const Footer = () => {
   return (
     <div className='flex w-full justify-between  px-10 pb-2'>
@@ -12,34 +19,19 @@ const Footer = () => {
           className='h-auto w-auto max-w-full'
           width={100} height={90} />
       </div>
-        <div className='flex space-x-2'>
-          <span >
-            <Image src={'/assets/images/mobli-icon.png'} alt='mobli-icon'
-              style={{ backgroundColor: '#67ACF7' }}
-              className='p-1'
-              width={20} height={20} />
-          </span>
-          <span >
-            <Image src={'/assets/images/mobli-icon.png'} alt='mobli-icon'
-              style={{ backgroundColor: '#67ACF7' }}
-              className='p-1'
-              width={20} height={20} />
-          </span>
-          
-          <span>
-            <Image src={'/assets/images/mobli-icon.png'} alt='facebook-icon'
-              style={{ backgroundColor: '#37599E' }}
-              className='p-1'
-              width={20} height={20} />
-          </span>
-          <span>
-            <Image src={'/assets/images/mobli-icon.png'} alt='youtube-icon'
-              style={{ backgroundColor: '#A22A1F' }}
+      <div className='flex space-x-2'>
+        {
+          socialIcons.map((icon, index) => (
+            <span  key={icon.bgColor}>
+              <Image src={icon.src} alt={icon.alt}
+              style={{ backgroundColor: icon.bgColor }}
               className='p-1'
               width={20} height={20} />
             </span>
-          </div>
-        </div>
+          ))
+        }   
+      </div>
+    </div>
   )
 }
 
