@@ -1,7 +1,8 @@
 'use client'
+
 import React from 'react';
 import VideoPlayer from './Video';
-import Contador from './Contador';
+import CountdownCustom from './Countdown';
 import Image from 'next/image';
 import { observable } from '@/app/lib/Observer';
 
@@ -12,7 +13,7 @@ const videoButtons = [
   { src: '/assets/images/experiencia.png', alt: 'experiencia', videoUrl: 'ytHWv7otmJ0', text: 'vive la experiencia multimedia' },
 ];
 
-const Center = () => {
+const Content = () => {
   const loadVideo = (urlVideo) => {
     observable.notify(urlVideo);
   };
@@ -23,16 +24,16 @@ const Center = () => {
         className='flex w-full flex-col'
         style={{
           backgroundImage: `url("/assets/images/background.jpg")`,
-          backgroundSize: 'cover',
+          backgroundSize: '70% 100%',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center center',
           flexGrow: 1,
         }}>
-        <Contador />
+        <CountdownCustom />
       </div>
       <VideoPlayer key={'videoTracker'} />
-      <div className='flex w-full flex-col items-center justify-center' style={{ backgroundColor: '#232323', height: '30vh', justifyContent: 'center' }}>
-        <div className='pb-5 text-xxs sm:text-xxs md:text-sm lg:text-base xl:text-lg' style={{ fontFamily: 'Exo' }}>CLARO SPORTS EN SOCHI 2024</div>
+      <div className='flex w-full flex-col items-center justify-center' style={{ backgroundColor: '#232323', height: '30vh', justifyContent: 'center', borderBottom:'2px solid #363636' }}>
+        <div className='pb-5 text-lg sm:text-lg md:text-sm lg:text-base xl:text-lg' style={{ fontFamily: 'Exo' }}>CLARO SPORTS EN SOCHI 2024</div>
         <div className='flex space-x-8 pb-10'>
           {videoButtons.map((video, index) => (
             <span key={video.alt} className='cursor-pointer'>
@@ -45,4 +46,4 @@ const Center = () => {
   );
 };
 
-export default Center;
+export default Content;

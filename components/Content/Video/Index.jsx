@@ -19,7 +19,7 @@ const VideoPlayer = () => {
      <div className='flex w-full items-center justify-center' >
        
          <iframe
-           style={{position: 'absolute', width: '30%',height:'35%',top:'8rem'}}
+           style={{position: 'absolute', width: '28%',height:'30%',top:'12rem'}}
           width="360"
           height="260"
           src={`https://www.youtube.com/embed/${videoId}`}
