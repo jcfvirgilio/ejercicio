@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 const socialIcons = [
-  { src: '/assets/images/mobli-icon.png', alt: 'mobli-icon', bgColor: '#67ACF7' },
+  { src: '/assets/images/mobli-icon.png', alt: 'mobli-icon', bgColor: '#67ACF8' },
   { src: '/assets/images/mobli-icon.png', alt: 'mobli-icon', bgColor: '#67ACF7' },
   { src: '/assets/images/mobli-icon.png', alt: 'facebook-icon', bgColor: '#37599E' },
   { src: '/assets/images/mobli-icon.png', alt: 'youtube-icon', bgColor: '#A22A1F' },
@@ -11,7 +11,8 @@ const socialIcons = [
 const Footer = () => {
   return (
     <div className='flex w-full justify-between  px-10 pb-2'>
-      <div className="text-xxs sm:text-xxs md:text-sm lg:text-base xl:text-lg">
+      <div className="text-xxs sm:text-xxs md:text-sm lg:text-base xl:text-lg"
+      style={{fontFamily:'Exo'}}>
         Aviso de privacidad / Contacto
       </div>
       <div>

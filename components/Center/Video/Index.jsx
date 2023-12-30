@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react';
-import PropTypes from "prop-types";
 import { observable } from '@/app/lib/Observer';
 
 const VideoPlayer = () => {
@@ -17,21 +16,21 @@ const VideoPlayer = () => {
  },[])
 
    return (
-    <div className='flex w-full items-center justify-center' >
-      <iframe
-        width="360"
-        height="260"
-        src={`https://www.youtube.com/embed/${videoId}`}
-        title="YouTube Video Player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
+     <div className='flex w-full items-center justify-center' >
+       
+         <iframe
+           style={{position: 'absolute', width: '30%',height:'35%',top:'8rem'}}
+          width="360"
+          height="260"
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title="YouTube Video Player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      
     </div>
    
   )
 }
 
-VideoPlayer.propTypes = {
-  videoUrl:PropTypes.string
-}
 export default React.memo(VideoPlayer);
