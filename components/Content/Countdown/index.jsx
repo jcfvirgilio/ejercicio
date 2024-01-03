@@ -12,7 +12,7 @@ const CountdownCustom = () => {
   // Estado para almacenar la fecha objetivo del contador
   const [countdownDate, setCountdownDate] = useState(() => {
     // Establecer la fecha objetivo al 3 de enero de 2024 a las 00:00:00
-    const targetDate = new Date(2024, 0, 3, 0, 0, 0, 0);
+    const targetDate = new Date(2024, 0, 8, 0, 0, 0, 0);
     return targetDate;
   });
 
